@@ -1,0 +1,24 @@
+body {
+    background-color: #D9D376;
+    font-family: Avenir;
+}
+
+.jumbotron {
+    background-color: #C5BB34;
+}
+
+#exist {
+    border-style: solid;
+    border-color: white;
+}
+
+#new {
+    border-style: solid;
+    border-color: white;
+}
+
+/* can't adapt button?? */
+.button {
+    padding-bottom: 5px;
+    color: #C5BB34;
+}

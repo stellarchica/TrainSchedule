@@ -1,30 +1,32 @@
 <!DOCTYPE html>
 <head>
 	<title>Train Schedule</title>
-    <link rel="stylesheet" type="text/css" href="assets/css/reset.css" />
-  <!-- bootstrap & css -->
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
+<!-- bootstrap & css -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <!-- jquery -->
+<!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <!-- bootstrap & js -->
+<!-- bootstrap & js -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  <!-- css -->
+<!-- css -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+<!-- firebase -->
+<script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
 
 <body>
-
+<!-- header -->
 <div class="container">
     <div class="row">
         <div class="jumbotron">
-            <h1 class="display-4">Current Train Schedule</h1>
+            <h2 class="display-4">Current Train Schedule</h2>
             <p class="lead">Times are in displayed in local times and are updated frequently</p>
         </div>
     </div>
 
-    <!-- necessary? -->
-    <div class="row">
+<!-- schedule box container -->
+    <div class="row" id="exist">
         <form>
-            <table class="table table-hover" id='employee-table'>
+            <table class="table table-hover" id="train-table">
                 <thead>
                     <tr>
                     <th>Train Name</th>
@@ -35,70 +37,51 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <tr>
+                    <th>Texas Route</th>
+                    <th>Austin</th>
+                    <th>8</th>
+                    <th>05:12</th>
+                    <th>36</th>
+                    </tr>
                 </tbody>
             </table>
         </form>
     </div>
-
-    <div class="row">
-        <form class="col-md-12 addTrainForm">
+<br>
+<!-- add train form -->
+    <div class="row" id="new">
+        <form class="col-md-12 submitTrainForm">
             <div class="form-group">
-                <label for="train-name-input" class="addTrainLabels">Train Name</label>
-                <input type="text" class="form-control" id="train-name-input" placeholder="">
+                <label for="name-input" class="trainSubmit">Train Name</label>
+                <input type="text" class="form-control" id="name-input">
             </div>
             
             <div class="form-group">
-                <label for="destination-input" class="addTrainLabels">Destination</label>
-                <input type="text" class="form-control" id="destination-input" placeholder="">
+                <label for="destination-input" class="trainSubmit">Destination</label>
+                <input type="text" class="form-control" id="destination-input">
             </div>
             
             <div class="form-group">
-                <label for="first-train-input" class="addTrainLabels">First Train Time (HH:mm – military time)</label>
-                <input type="text" class="form-control" id="first-train-input" placeholder="">
+                <label for="first-time-input" class="trainSubmit">First Train Time (HH:mm – military time)</label>
+                <input type="text" class="form-control" id="first-train-input">
             </div>
             
             <div class="form-group">
-                <label for="frequency-input2" class="addTrainLabels">Frequency (min)</label>
-                <input type="text" class="form-control" id="frequency-input" placeholder="">
+                <label for="frequency-input" class="trainSubmit">Frequency (min)</label>
+                <input type="text" class="form-control" id="frequency-input">
             </div>
             
             <button class="btn btn-primary" type="submit">Submit</button>
-
+            
         </form>
     </div>
 
 
 </div>    
 <!-- javascript -->
-<script src="assets/javascript.js"></script>
+<script src="assets/javascript/javascript.js"></script>
+<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
 </body>
 </html>
-
-<!-- Create a train schedule application that incorporates Firebase to host arrival and departure data.
-Your app will retrieve and manipulate this information with Moment.js.
-Website will provide up-to-date information about various trains
-    namely their arrival times
-    how many minutes remain until they arrive at their station.
-
-    Just make sure you're using Firebase to store data,
-    GitHub to backup your project,
-    and GitHub Pages to host your finished site.
-
-When adding trains, administrators should be able to submit the following:
-
-    Train Name // Destination
-    First Train Time - in military time // Frequency - in minutes
-    
-    Code this app to calculate when the next train will arrive;
-    this should be relative to the current time.
-    
-    Users from many different machines must be able to view same train times.
-    
-    Styling and theme are completely up to you. Get Creative!
-
-Minimum Requirements
-    Attempt to complete homework assignment as described in instructions.
-    If unable, please pseudocode these portions to describe what remains to be completed.
-    Adding a README.md as well as adding this homework to your portfolio are required as well
-    and more information can be found below. -->
